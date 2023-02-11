@@ -1,14 +1,31 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-
+import Footer from "./Components/Footer";
+import Home from "./Components/Pages/Home";
+import Navbar from "./Components/Navbar";
+import About from  "./Components/Pages/About.jsx" 
+import NotFound from "./Components/Pages/NotFound"
 
 function App() {
   return (
-    <div className="bg-slate">
-     <h1 className='text-xl'>jehovah </h1> 
-    <button className="btn btn-primary">submit</button>
-    <h1>hhh</h1>
-    <h2>jesus</h2>
+    <Router>
+ <div className="flex flex-col justify-between  h-screen">
+     <Navbar/>
+    <main> 
+      <Routes>
+<Route path="/" element ={<Home/>}/>
+<Route path="/about" element ={<About/>}/>
+<Route path="/NotFound" element ={<NotFound/>}/>
+<Route path="/*" element ={<NotFound/>}/>
+        
+      </Routes>
+      
+      
+      </main> 
+   <Footer/>
     </div>
+    </Router>
+   
   );
 }
 
