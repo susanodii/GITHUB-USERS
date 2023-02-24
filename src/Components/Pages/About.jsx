@@ -6,9 +6,9 @@
     <div>
       <h1 className="text-4xl mb-4"> GitHub user Application</h1>
       <p
-      className="mb-4 text-2xl"> A React Application to search for git hub users and display their profile</p>
-   <p> Version: 0.0.1</p>
-    </div>
+      className="mb-4 text-2xl"> A React Application to search for Github users and display their profile</p>
+   <p className='text-lg'> Version: <span className="text-gray-300"> 0.0.2</span> </p>
+   </div>
   )
 }
 

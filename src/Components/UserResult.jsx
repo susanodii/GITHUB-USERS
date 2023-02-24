@@ -1,7 +1,8 @@
 import {useEffect, useState}  from 'react'
 
 import Spinner from './Asset/Spinner'
- const UserResult = () => {
+
+const UserResult = () => {
   
     const [users, setUsers] = useState([])
    const [isLoading, setIsLoading] = useState(true)
