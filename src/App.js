@@ -1,13 +1,15 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
+import About from  "./Components/Pages/About.jsx"
 import Footer from "./Components/Footer";
+import { GithubProvider } from "./Components/Context/Github/GithubContext.js";
 import Home from "./Components/Pages/Home";
 import Navbar from "./Components/Navbar";
-import About from  "./Components/Pages/About.jsx" 
 import NotFound from "./Components/Pages/NotFound"
 
 function App() {
   return (
+    <GithubProvider>
     <Router>
  <div className="flex flex-col justify-between  h-screen">
      <Navbar/>
@@ -25,6 +27,7 @@ function App() {
    <Footer/>
     </div>
     </Router>
+    </GithubProvider>
    
   );
 }

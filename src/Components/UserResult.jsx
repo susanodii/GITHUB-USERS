@@ -1,31 +1,35 @@
-import {useEffect, useState}  from 'react'
+import {useContext, useEffect}  from 'react'
 
+import GithubContext from './Context/Github/GithubContext'
 import Spinner from './Asset/Spinner'
 import UserItem from './UserItem'
 
 const UserResult = () => {
   
-    const [users, setUsers] = useState([])
-   const [isLoading, setIsLoading] = useState(true)
+   //  const [users, setUsers] = useState([])
+   // const [isLoading, setIsLoading] = useState(true)
 
+      const {users, isLoading, fetchUsers} = useContext(GithubContext)
+   
 
    useEffect(() =>{
-fetchUsers()
+  fetchUsers() 
+
    }, [])
 
-   const fetchUsers = async() => {
-    const res = await fetch (`${process.env.REACT_APP_GITHUB_BASE_URL}/users`, {
+//    const fetchUsers = async() => {
+//     const res = await fetch (`${process.env.REACT_APP_GITHUB_BASE_URL}/users`, {
 
-        headers : {
-            Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-         } ,
-    } )
+//         headers : {
+//             Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
+//          } ,
+//     } )
 
-const data = await res.json()
-   setUsers(data)
-   setIsLoading(false)
-console.log(data)
-}
+// const data = await res.json()
+//    setUsers(data)
+//    setIsLoading(false)
+// console.log(data)
+// }
    if(!isLoading){
     return (
         <div className='grid grid-cols-1 gap-8
