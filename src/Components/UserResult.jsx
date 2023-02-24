@@ -1,6 +1,7 @@
 import {useEffect, useState}  from 'react'
 
 import Spinner from './Asset/Spinner'
+import UserItem from './UserItem'
 
 const UserResult = () => {
   
@@ -30,7 +31,8 @@ console.log(data)
         <div className='grid grid-cols-1 gap-8
         
         xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>{users.map((user) =>(
-            <h2> {user.login}</h2>
+            // <h2> {user.login}</h2>
+            <UserItem key={user.id} user={user}/>
         ))}</div>
       )
    } else {
