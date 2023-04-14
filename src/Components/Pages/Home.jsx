@@ -1,10 +1,10 @@
-
 import UserResult from "../UserResult"
+import UserSearch from "../UserSearch"
 
- const Home = () => {
+const Home = () => {
   return (
-    <div>Welcome Home
-
+    <div>
+<UserSearch/>
 <UserResult/>
 
     </div>
