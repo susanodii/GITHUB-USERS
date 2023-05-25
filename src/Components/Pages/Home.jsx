@@ -7,6 +7,9 @@ const Home = () => {
 <UserSearch/>
 <UserResult/>
 
+
+
+
     </div>
    
   )

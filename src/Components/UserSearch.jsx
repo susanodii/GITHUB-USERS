@@ -1,16 +1,39 @@
-import React from 'react'
+import { useContext, useState } from 'react'
+
+import GithubContext from './Context/Github/GithubContext'
 
 const UserSearch = () => {
+  const [text, setText] = useState('')
+
+  const {users, fetchUsers} = useContext(GithubContext)
+  console.log(users, 'initial users' )
+  const handleChange = (e) => setText(e.target.value)
+// console.log(users);
+  // handle submit button
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (text === '') {
+      alert('Kindly input a search word')
+    } else {
+      // search users
+      fetchUsers(text)
+      setText('')
+      console.log(users, 'check users');
+    }
+  }
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-control">
+            
             <div className="relative ml-16">
               <input
                 type="text"
                 className="w-full pr-40 bg-gray-700 input input-lg text-white   "
                 placeholder="Search for a user"
+                value={text}
+                onChange={handleChange}
               />
               <button
                 type="submit"
@@ -24,9 +47,15 @@ const UserSearch = () => {
         </form>
       </div>
 
-      <div>
-        <button className="btn btn-ghost btn-lg text-white bg-gray-700">Clear</button>
-      </div>
+    {users?.length > 0 && (
+          <div>
+          <button className="btn btn-ghost btn-lg text-white bg-gray-700">
+            Clear
+          </button>
+        </div>
+  )
+        
+    }
     </div>
   )
 }
