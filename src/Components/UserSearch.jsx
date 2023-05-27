@@ -15,7 +15,7 @@ const UserSearch = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (text === '') {
-      setAlert('Kindly input a search word', 'Error')
+      setAlert('Kindly input a search word', 'error')
     } else {
       // search users
       fetchUsers(text)
