@@ -8,7 +8,7 @@ const UserSearch = () => {
 
   const {users, fetchUsers, clearUsers} = useContext(GithubContext)
   const {setAlert} = useContext(AlertContext)
-  console.log(users, 'initial users' )
+  
   const handleChange = (e) => setText(e.target.value)
 // console.log(users);
   // handle submit button

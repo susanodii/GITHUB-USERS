@@ -17,7 +17,7 @@ const UserItem = ({user:{login, avatar_url}}) => {
             
         {login}
          </h2>
-        <Link className="text-base-content" to={`/users/${login}`}>
+        <Link className="text-base-content" to={`/user/${login}`}>
         View User profile
         </Link>
             
