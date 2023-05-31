@@ -16,6 +16,7 @@ export const GithubProvider = ({ children }) => {
     users: [],
     user:{},
     isLoading: false,
+    repos:[],
   }
 
   const [state, dispatch] = useReducer(GithubReducer, initialState)
@@ -74,25 +75,43 @@ export const GithubProvider = ({ children }) => {
       payload: data,
      })
     }
+}
 
+// function to get user repositories
 
+const getUserRepos = async(login)=>{
+  setIsLoading()
+  const params = new URLSearchParams({
+    sort:'created',
+    per_page:10,
+})
 
+const res= await fetch(`${GITHUB_BASE_URL}/users/${login}/repos?${params}`, {
+  headers:{
+    Authorization:`token ${GITHUB_TOKEN}`,
+         'Content-Type': `application/json`,
+  },
+})
 
+const data = await res.json()
 
-
-    
-  }
+dispatch({
+  type:'GET_REPOS',
+  payload:data,
+})
+}
   return (
     <GithubContext.Provider
       value={{
         ...state,
         users: state.users,
         user:state.user,
-       
+       repos:state.repos,
         isLoading: state.isLoading,
         fetchUsers,
         clearUsers,
         getUser,
+        getUserRepos
         
       }}
     >
