@@ -104,10 +104,10 @@ dispatch({
     <GithubContext.Provider
       value={{
         ...state,
-        users: state.users,
-        user:state.user,
-       repos:state.repos,
-        isLoading: state.isLoading,
+      //   users: state.users,
+      //   user:state.user,
+      //  repos:state.repos,
+      //   isLoading: state.isLoading,
         fetchUsers,
         clearUsers,
         getUser,
