@@ -83,7 +83,7 @@ const getUserRepos = async(login)=>{
   setIsLoading()
   const params = new URLSearchParams({
     sort:'created',
-    per_page:10,
+    per_page:5,
 })
 
 const res= await fetch(`${GITHUB_BASE_URL}/users/${login}/repos?${params}`, {
